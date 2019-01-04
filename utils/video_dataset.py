@@ -1,30 +1,30 @@
 import numpy as np
 import glob
-import utils
+import utils.utils as util
 import time
+import os
 
 class Dataset():
     def __init__(self, args):
+        self.trainidx = []
         self.dataset_name = args.dataset_name
-        self.num_class = args.num_class
-        self.feature_size = args.feature_size
-        self.path_to_features = self.dataset_name + '-I3D-JOINTFeatures.npy'
-        self.path_to_annotations = self.dataset_name + '-Annotations/'
-        self.features = np.load(self.path_to_features, encoding='bytes')
-        self.segments = np.load(self.path_to_annotations + 'segments.npy')
+        self.path_to_annotations = os.path.join(args.annotation_path, args.dataset_name + '-Annotations/')
+        self.path_to_features = os.path.join(args.I3D_path, self.dataset_name + '-I3D-JOINTFeatures.npy')
         self.labels = np.load(self.path_to_annotations + 'labels_all.npy')     # Specific to Thumos14
         self.classlist = np.load(self.path_to_annotations + 'classlist.npy')
         self.subset = np.load(self.path_to_annotations + 'subset.npy')
-        self.batch_size = args.batch_size
-        self.t_max = args.max_seqlen
-        self.trainidx = []
         self.testidx = []
         self.classwiseidx = []
-        self.currenttestidx = 0
-        self.labels_multihot = [utils.strlist2multihot(labs,self.classlist) for labs in self.labels]
-
         self.train_test_idx()
+        self.currenttestidx = 0
+        self.t_max = args.max_seqlen
+        self.num_class = args.num_class
         self.classwise_feature_mapping()
+        self.batch_size = args.batch_size
+        self.feature_size = args.feature_size
+        self.features = np.load(self.path_to_features, encoding='bytes')
+        self.segments = np.load(self.path_to_annotations + 'segments.npy')
+        self.labels_multihot = [util.strlist2multihot(labs,self.classlist) for labs in self.labels]
 
 
     def train_test_idx(self):
@@ -62,7 +62,7 @@ class Dataset():
             for r in rand_sampleid:
                 idx.append(self.trainidx[r])
           
-            return np.array([utils.process_feat(self.features[i], self.t_max) for i in idx]), np.array([self.labels_multihot[i] for i in idx])
+            return np.array([util.process_feat(self.features[i], self.t_max) for i in idx]), np.array([self.labels_multihot[i] for i in idx])
 
         else:
             labs = self.labels_multihot[self.testidx[self.currenttestidx]]
@@ -74,4 +74,3 @@ class Dataset():
                 done = False; self.currenttestidx += 1
          
             return np.array(feat), np.array(labs), done
-
