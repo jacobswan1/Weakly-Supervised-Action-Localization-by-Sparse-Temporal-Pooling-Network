@@ -9,9 +9,9 @@ Create a feature directory and pour in I3D features provided from Sujoy Paul, UC
 
 ## Precision Updates on Thumos 2014 Challenges
 
-**Our baseline is not strong enough as people care more about IoU=0.5**
 
-<span style="font-family:Papyrus; font-size:4em;">LOVE!</span>
+[Text to display][xx] Our baseline is not strong enough as people care more about IoU=0.5.
+
 
 | map | IoU=0.1 | 0.2| 0.3| 0.4| 0.5|
 | --- | --- | --- | --- | --- | --- |
