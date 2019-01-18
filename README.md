@@ -10,9 +10,9 @@ Create a feature directory and pour in I3D features provided from Sujoy Paul, UC
 ## Precision Updates on Thumos 2014 Challenges
 | map | IoU=0.1 | 0.2| 0.3| 0.4| 0.5|
 | --- | --- | --- | --- | --- | --- |
-| TCAM-paper |**52.00** | 44.70 | 26.27 | 35.50 | 25.80 |
+| TCAM-paper |**52.00** | **44.70** | 26.27 | **35.50** | **25.80** |
 | Ours-TCAM | 40.96 | 37.65 | 26.27 | 16.98 | 10.39 |
-| Ours_Margin_Loss | 47.91 | 39.08 | 28.66 | 20.14 | 13.26 |
+| Ours_Margin_Loss | 47.91 | 39.08 | **28.66** | 20.14 | 13.26 |
 
 ## Other Implementation and Results
 | map | IoU=0.1 | 0.2| 0.3| 0.4| 0.5|
