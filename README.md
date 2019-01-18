@@ -10,7 +10,7 @@ Create a feature directory and pour in I3D features provided from Sujoy Paul, UC
 ## Precision Updates on Thumos 2014 Challenges
 
 
-[Our baseline is not strong enough as people care more about IoU=0.5](xx:xx)
+[Our baseline is not strong enough as people care more about IoU=0.5](http://xx.xx)
 
 
 | map | IoU=0.1 | 0.2| 0.3| 0.4| 0.5|
