@@ -1,4 +1,7 @@
-# Weakly Supervised Temporal Grounding with Referring Attention and Associative Learning
+# Referring Attention Learning for Weakly Supervised Temporal Grounding
+Weakly supervised learning for temporal grounding, including action/activity localization and moment localization in videos. Top-down signal guided attention, or referring attention is novel; Losses should be novel (still developing); the use of Gumbel in the training is novel in term of binary attention.
+
+
 
 
 # STPN: Weakly Supervised Action Localization by Sparse Temporal Pooling Network
